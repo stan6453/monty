@@ -30,8 +30,6 @@ void execute_cmd(char *cmd[], stack_t **stack, unsigned int line_number)
 
 	}
 	f(stack, line_number);
-
-	return (0);
 }
 
 /**

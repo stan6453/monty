@@ -22,7 +22,6 @@ void push(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	newnode->next = NULL;
 	newnode->prev = NULL;
 
-
 	if ((*stack) == NULL)
 		(*stack) = newnode;
 	else
@@ -30,5 +29,19 @@ void push(stack_t **stack, unsigned int line_number __attribute__((unused)))
 		newnode->prev = (*stack);
 		(*stack)->next = newnode;
 		(*stack) = newnode;
+	}
+}
+
+void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
+{
+	stack_t *temp = *stack;
+
+	if(*stack == NULL)
+		return;
+
+	while(temp)
+	{
+		printf("%d\n", temp->n);
+		temp = temp->prev;
 	}
 }

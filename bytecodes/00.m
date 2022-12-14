@@ -5,11 +5,12 @@ push         56
 
 
 
-         push 11
+         push    78
 
 
 
 
 
 
-          push                95            
+            push          0
+       pall                   

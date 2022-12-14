@@ -16,6 +16,11 @@ int execute_cmd(char *cmd[], stack_t **stack, unsigned int line_number)
 
 	if (cmd[1] != NULL)
 		push_argument = atoi(cmd[1]);
+	if (strcmp(cmd[0], "push") == 0 && !isonlydigit(cmd[1]))
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		return (-1);
+	}
 
 	f = get_cmd(cmd[0]);
 	if (f == NULL)
@@ -41,6 +46,7 @@ void (*get_cmd(char *op))(stack_t **stack, unsigned int line_number)
 
 	instruction_t instructions[] = {
 		{"push", push},
+		{"pall", pall},
 		{NULL, NULL}
 	};
 

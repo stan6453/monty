@@ -54,11 +54,15 @@ void (*get_cmd(char *op))(stack_t **stack, unsigned int line_number);
 /*utility functions*/
 void freestack(stack_t *stacktail);
 void freeallandexit(stack_t *stacktail, FILE *file, char *line, int exitcode);
-
+int isonlydigit(char *s);
 
 
 /*the functions to handle different operations*/
 void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+
+
+
 
 
 /*debugging functions*/

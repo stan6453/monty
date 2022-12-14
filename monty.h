@@ -38,4 +38,9 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+
+size_t _getline(char **line, size_t *linesize, FILE *file);
+
+
+
 #endif

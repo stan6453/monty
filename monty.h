@@ -40,7 +40,13 @@ typedef struct instruction_s
 
 
 size_t _getline(char **line, size_t *linesize, FILE *file);
+void tokenize_string(char *line, char *cmd[]);
+void execute_cmd(char *cmd[], stack_t **stack, unsigned int line_number);
+void (*get_cmd(char *op))(stack_t **stack, unsigned int line_number);
 
+
+/*the functions to handle different operations*/
+void push(stack_t **stack, unsigned int line_number);
 
 
 #endif

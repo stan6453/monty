@@ -20,7 +20,11 @@ int main(int argc __attribute__((unused)), char **argv)
 	return (0);
 }
 
-
+/**
+ * run_program - this is the program body. main execution starts here
+ * @argv: argument vector containing all
+ * command line arguments passed to program
+ */
 void run_program(char **argv)
 {
 	FILE *file = fopen(argv[1], "r");
@@ -32,17 +36,16 @@ void run_program(char **argv)
 
 	if (line == NULL)
 	{
-		/*print error and return*/
+		fprintf(stderr, "Error: malloc failed\n");
 		fclose(file);
-		exit (1);
+		exit(EXIT_FAILURE);
 	}
 
 	if (file == NULL)
 	{
-		/*file could not be opend retunr error appropriately*/
-	fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		free(line);
-		exit (1);
+		exit(1);
 	}
 
 	while (_getline(&line, &linesize, file, stacktail))
@@ -51,7 +54,8 @@ void run_program(char **argv)
 		if (line[0] == '\0')
 			continue;
 		tokenize_string(line, cmd);
-		execute_cmd(cmd, &stacktail, line_number);
+		if (execute_cmd(cmd, &stacktail, line_number) == -1)
+			freeallandexit(stacktail, file, line, EXIT_FAILURE);
 	}
 
 
@@ -60,7 +64,7 @@ void run_program(char **argv)
 	if (line)
 		free(line);
 	/*if u run into any problem, fry freeing stacktail here*/
-	exit (0);
+	exit(0);
 
 }
 /**
@@ -81,7 +85,6 @@ size_t _getline(char **line, size_t *linesize, FILE *file, stack_t *stacktail)
 	{
 		fclose(file);
 		free(*line);
-		printstack(stacktail);
 		freestack(stacktail);
 		exit(1);
 	}

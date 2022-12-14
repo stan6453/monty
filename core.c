@@ -8,8 +8,9 @@
  * @stack: double pointer to the stack to operate on
  * @line_number: the line number where this command
  * can be found in the source file
+ * Return: -1 on error 0 on success
  */
-void execute_cmd(char *cmd[], stack_t **stack, unsigned int line_number)
+int execute_cmd(char *cmd[], stack_t **stack, unsigned int line_number)
 {
 	void (*f)(stack_t **stack, unsigned int line_number);
 
@@ -17,8 +18,15 @@ void execute_cmd(char *cmd[], stack_t **stack, unsigned int line_number)
 		push_argument = atoi(cmd[1]);
 
 	f = get_cmd(cmd[0]);
+	if (f == NULL)
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, cmd[0]);
+		return (-1);
 
+	}
 	f(stack, line_number);
+
+	return (0);
 }
 
 /**

@@ -55,3 +55,17 @@ void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 		temp = temp->prev;
 	}
 }
+
+/**
+ * pint - prints the value at the top of the
+ * stack, followed by a new line.
+ * @stack: double pointer tail of the stack to push the item
+ * @line_number: the line number where this
+ * command can be found in the source file
+ */
+void pint(stack_t **stack, unsigned int line_number __attribute__((unused)))
+{
+	if (*stack == NULL)
+		return;
+	printf("%d\n", (*stack)->n);
+}

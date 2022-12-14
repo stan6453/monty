@@ -46,7 +46,7 @@ void run_program(char **argv)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		free(line);
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	while (_getline(&line, &linesize, file, stacktail))
 	{
@@ -62,7 +62,7 @@ void run_program(char **argv)
 	if (line)
 		free(line);
 	/*if u run into any problem, fry freeing stacktail here*/
-	exit(0);
+	exit(EXIT_SUCCESS);
 }
 /**
  * _getline - return the next available line from a file stream
@@ -83,7 +83,7 @@ size_t _getline(char **line, size_t *linesize, FILE *file, stack_t *stacktail)
 		fclose(file);
 		free(*line);
 		freestack(stacktail);
-		exit(0);
+		exit(EXIT_SUCCESS);
 	}
 
 	/*remove the newline at the end*/

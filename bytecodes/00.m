@@ -1,16 +1,4 @@
-push         56
-
-
-
-
-
-
-         push    78
-
-
-
-
-
-
-            push          0
-       pall                   
+push 56
+push 7
+push 0
+pall

@@ -6,9 +6,6 @@
 #include <string.h>
 #include <limits.h>
 
-/*this variable is initialized in main.c*/
-extern int push_argument;
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -39,6 +36,28 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+
+
+
+
+/**
+* struct global_var - this structure contains all our global variable
+* @file: pointer to monty file
+* @line: line content
+* @push_argument: argument passed to push
+*
+* Description: carries values through the program
+*/
+typedef struct global_var
+{
+	FILE *file;
+	char **line;
+	int push_argument;
+}  global_v;
+extern global_v gv;
+
+
 
 void run_program(char **argv);
 size_t _getline(char **line, size_t *linesize, FILE *file, stack_t *stacktail);

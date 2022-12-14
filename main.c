@@ -1,6 +1,6 @@
 #include "monty.h"
 
-int push_argument = INT_MIN;
+global_v gv;
 
 /**
  * main - program execution starts here
@@ -34,20 +34,20 @@ void run_program(char **argv)
 	unsigned int line_number = 0;
 	char *cmd[3];
 
+	gv.file = file;
+	gv.line = &line;
 	if (line == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}
-
 	if (file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		free(line);
 		exit(1);
 	}
-
 	while (_getline(&line, &linesize, file, stacktail))
 	{
 		line_number++;
@@ -57,15 +57,12 @@ void run_program(char **argv)
 		if (execute_cmd(cmd, &stacktail, line_number) == -1)
 			freeallandexit(stacktail, file, line, EXIT_FAILURE);
 	}
-
-
 	if (file)
 		fclose(file);
 	if (line)
 		free(line);
 	/*if u run into any problem, fry freeing stacktail here*/
 	exit(0);
-
 }
 /**
  * _getline - return the next available line from a file stream

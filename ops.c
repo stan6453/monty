@@ -15,10 +15,10 @@ void push(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	if (newnode == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
+		freeallandexit(*stack, gv.file, *gv.line, EXIT_FAILURE);
 	}
 
-	newnode->n = push_argument;
+	newnode->n = gv.push_argument;
 	newnode->next = NULL;
 	newnode->prev = NULL;
 
@@ -32,14 +32,24 @@ void push(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	}
 }
 
+
+
+
+
+/**
+ * pall - prints all the items on the stack
+ * @stack: double pointer tail of the stack to push the item
+ * @line_number: the line number where this
+ * command can be found in the source file
+ */
 void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
 	stack_t *temp = *stack;
 
-	if(*stack == NULL)
+	if (*stack == NULL)
 		return;
 
-	while(temp)
+	while (temp)
 	{
 		printf("%d\n", temp->n);
 		temp = temp->prev;

@@ -1,6 +1,6 @@
 #include "monty.h"
 
-global_v gv;
+global_v gv = {NULL, NULL, INT_MIN};
 
 /**
  * main - program execution starts here

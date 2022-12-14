@@ -10,7 +10,7 @@
  * can be found in the source file
  * Return: -1 on error 0 on success
  */
-int execute_cmd(char *cmd[], stack_t **stack, unsigned int line_number)
+void execute_cmd(char *cmd[], stack_t **stack, unsigned int line_number)
 {
 	void (*f)(stack_t **stack, unsigned int line_number);
 

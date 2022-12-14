@@ -67,7 +67,7 @@ void tokenize_string(char *line, char *cmd[]);
  * core functions. functions that
  * supposed to be part of main.c, but couldn't fit
  */
-int execute_cmd(char *cmd[], stack_t **stack, unsigned int line_number);
+void execute_cmd(char *cmd[], stack_t **stack, unsigned int line_number);
 void (*get_cmd(char *op))(stack_t **stack, unsigned int line_number);
 
 /*utility functions*/

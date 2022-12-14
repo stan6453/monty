@@ -103,10 +103,10 @@ void tokenize_string(char *line, char *cmd[])
 {
 	int i = 0;
 
-	cmd[i] = strtok(line, " ");
+	cmd[i] = strtok(line, " \t");
 	while (cmd[i] != NULL)
 	{
 		i++;
-		cmd[i] = strtok(NULL, " ");
+		cmd[i] = strtok(NULL, " \t");
 	}
 }

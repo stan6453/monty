@@ -57,6 +57,8 @@ int isonlydigit(char *s)
 {
 	if (s == NULL)
 		return (0);
+	if (s[0] == '\0')
+		return (0);
 	while (*s != '\0')
 	{
 		if (*s < '0' || *s > '9')

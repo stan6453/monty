@@ -4,7 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
 
+/*this variable is initialized in main.c*/
 extern int push_argument;
 
 /**
@@ -38,16 +40,25 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-
-size_t _getline(char **line, size_t *linesize, FILE *file);
+void run_program(char **argv);
+size_t _getline(char **line, size_t *linesize, FILE *file, stack_t *stacktail);
 void tokenize_string(char *line, char *cmd[]);
+
+/*core functions. functions that supposed to be part of main.c, but couldn't fit*/
 void execute_cmd(char *cmd[], stack_t **stack, unsigned int line_number);
 void (*get_cmd(char *op))(stack_t **stack, unsigned int line_number);
+
+/*utility functions*/
+void freestack(stack_t *stacktail);
 
 
 
 /*the functions to handle different operations*/
 void push(stack_t **stack, unsigned int line_number);
+
+
+/*debugging functions*/
+void printstack(stack_t *stacktail);
 
 
 #endif

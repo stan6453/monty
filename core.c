@@ -19,14 +19,14 @@ int execute_cmd(char *cmd[], stack_t **stack, unsigned int line_number)
 	if (strcmp(cmd[0], "push") == 0 && !isonlydigit(cmd[1]))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		return (-1);
+		freeallandexit(*stack, gv.file, *gv.line, EXIT_FAILURE);
 	}
 
 	f = get_cmd(cmd[0]);
 	if (f == NULL)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, cmd[0]);
-		return (-1);
+		freeallandexit(*stack, gv.file, *gv.line, EXIT_FAILURE);
 
 	}
 	f(stack, line_number);

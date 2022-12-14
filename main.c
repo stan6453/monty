@@ -54,8 +54,7 @@ void run_program(char **argv)
 		if (line[0] == '\0')
 			continue;
 		tokenize_string(line, cmd);
-		if (execute_cmd(cmd, &stacktail, line_number) == -1)
-			freeallandexit(stacktail, file, line, EXIT_FAILURE);
+		execute_cmd(cmd, &stacktail, line_number);
 	}
 
 	freeallandexit(stacktail, file, line, EXIT_SUCCESS);

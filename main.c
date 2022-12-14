@@ -39,29 +39,6 @@ int main(int argc __attribute__((unused)), char **argv)
 		tokenize_string(line, cmd);
 		execute_cmd(cmd, &stacktail, line_number);
 	}
-
-	
-	if (line == NULL)
-	{
-		/*print error and return*/
-		fclose(file);
-		return (1);
-	}
-
-	if (file == NULL)
-	{
-		/*file could not be opend retunr error appropriately*/
-		free(line);
-		return (1);
-	}
-
-	while(_getline(&line, &linesize, file))
-	{
-		line_number++;
-		tokenize_string(line,cmd);
-		execute_cmd(cmd, &stacktail, line_number);
-	}
-		
 	if (file)
 		fclose(file);
 	if (line)

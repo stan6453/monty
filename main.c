@@ -57,12 +57,8 @@ void run_program(char **argv)
 		if (execute_cmd(cmd, &stacktail, line_number) == -1)
 			freeallandexit(stacktail, file, line, EXIT_FAILURE);
 	}
-	if (file)
-		fclose(file);
-	if (line)
-		free(line);
-	/*if u run into any problem, fry freeing stacktail here*/
-	exit(EXIT_SUCCESS);
+	
+	freeallandexit(stacktail, file, line, EXIT_SUCCESS);
 }
 /**
  * _getline - return the next available line from a file stream

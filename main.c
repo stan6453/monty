@@ -10,7 +10,7 @@ global_v gv = {NULL, NULL, INT_MIN};
  */
 int main(int argc __attribute__((unused)), char **argv)
 {
-	if (argc < 2 || argc > 2)
+	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
@@ -83,7 +83,7 @@ size_t _getline(char **line, size_t *linesize, FILE *file, stack_t *stacktail)
 		fclose(file);
 		free(*line);
 		freestack(stacktail);
-		exit(1);
+		exit(0);
 	}
 
 	/*remove the newline at the end*/

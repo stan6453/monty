@@ -17,6 +17,7 @@ int main(int argc, char **argv)
 	}
 
 	run_program(argv);
+	return (0);
 }
 
 /**

@@ -1,7 +1,11 @@
 #ifndef _SSTACK_
 #define _SSTACK_
 
-#define STACK_SIZE 1024
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+extern int push_argument;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -33,12 +37,5 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-
-int pop(void);
-int push(int item);
-void pall(void);
-void pint(void);
-void swap(void);
-
 
 #endif

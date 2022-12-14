@@ -57,7 +57,7 @@ void run_program(char **argv)
 		if (execute_cmd(cmd, &stacktail, line_number) == -1)
 			freeallandexit(stacktail, file, line, EXIT_FAILURE);
 	}
-	
+
 	freeallandexit(stacktail, file, line, EXIT_SUCCESS);
 }
 /**

@@ -8,7 +8,7 @@ global_v gv = {NULL, NULL, INT_MIN};
  * @argv: vector containing list of all command line args
  * Return: 0 if program exited without errors
  */
-int main(int argc __attribute__((unused)), char **argv)
+int main(int argc, char **argv)
 {
 	if (argc != 2)
 	{

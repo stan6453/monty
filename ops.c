@@ -52,6 +52,7 @@ void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 			printf("%d\n", temp->n);
 			temp = temp->prev;
 		}
+	printf("\n");
 }
 
 /**

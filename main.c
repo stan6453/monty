@@ -73,7 +73,7 @@ size_t _getline(char **line, size_t *linesize, FILE *file, stack_t *stacktail)
 	int test;
 
 	characters = getline(line, linesize, file);
-	
+
 	test = characters;
 
 	if (test == -1)

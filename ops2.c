@@ -25,3 +25,16 @@ void add(stack_t **stack, unsigned int line_number)
 	temp->n = top + bottom;
 	(*stack) = temp;
 }
+
+
+/**
+ * nop - doesn’t do anything.
+ * @stack: double pointer tail of the stack to push the item
+ * @line_number: the line number where this
+ * command can be found in the source file
+ */
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void) stack;
+	(void) line_number;
+}

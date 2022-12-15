@@ -38,7 +38,7 @@ void run_program(char **argv)
 	gv.line = &line;
 	if (line == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
+		/*fprintf(stderr, "Error: malloc failed\n");*/
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}

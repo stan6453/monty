@@ -74,6 +74,7 @@ void (*get_cmd(char *op))(stack_t **stack, unsigned int line_number);
 void freestack(stack_t *stacktail);
 void freeallandexit(stack_t *stacktail, FILE *file, char *line, int exitcode);
 int isonlydigit(char *s);
+int first_char_is_digit(char *s);
 
 
 /*the functions to handle different operations*/

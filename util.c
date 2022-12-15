@@ -67,3 +67,21 @@ int isonlydigit(char *s)
 	}
 	return (1);
 }
+
+
+
+/**
+ * first_char_is_digit - checks if a string
+ * contains a digits as the first character
+ * @s: string to be checked
+ * Return: 1 if string contains only didgit
+ *         0 if string has at lest one non-digit character
+ */
+int first_char_is_digit(char *s)
+{
+	if (s == NULL)
+		return (0);
+	if (s[0] == '\0')
+		return (0);
+	return (s[0]  >= '0' && s[0] <= '9');
+}

@@ -79,7 +79,7 @@ void pstr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	while(temp){
 
 		/*0 - 127 are the printable ascii characters*/
-		if ((temp->n < 65 || temp->n > 126) && temp->n != 32)
+		if (temp->n < 65 || temp->n > 127)
 		{
 			printf("\n");
 			return;

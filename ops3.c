@@ -40,18 +40,14 @@ void mod(stack_t **stack, unsigned int line_number)
  */
 void pchar(stack_t **stack, unsigned int line_number)
 {
-	int is_uchar;
-	int is_lchar;
-
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 		freeallandexit(*stack, gv.file, *gv.line, EXIT_FAILURE);
 	}
 
-	is_lchar = (*stack)->n >= 'a' && (*stack)->n <= 'z';
-	is_uchar =  (*stack)->n >= 'A' && (*stack)->n <= 'Z';
-	if (!(is_lchar || is_uchar))
+	/*0 - 127 are the printable ascii characters*/
+	if ((*stack)->n < 0 || (*stack)->n > 127)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
 		freeallandexit(*stack, gv.file, *gv.line, EXIT_FAILURE);

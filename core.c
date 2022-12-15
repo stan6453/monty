@@ -51,6 +51,7 @@ void (*get_cmd(char *op))(stack_t **stack, unsigned int line_number)
 		{"add", add},
 		{"nop", nop},
 		{"sub", sub},
+		{"div", idiv},
 		{NULL, NULL}
 	};
 

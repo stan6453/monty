@@ -102,6 +102,11 @@ void tokenize_string(char *line, char *cmd[])
 	while (cmd[i] != NULL)
 	{
 		i++;
+		if (i == 2)
+		{
+			cmd[i] = NULL;
+			return;
+		}
 		cmd[i] = strtok(NULL, " \t");
 	}
 }

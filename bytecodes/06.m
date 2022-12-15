@@ -1,4 +1,4 @@
-push 1
+push 1 like
 pint
 push 2
 pint

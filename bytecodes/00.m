@@ -1,5 +1,5 @@
-push 56
-	push 7
+push 56 uu
+	push 7 uu
 push 0
 
 	pall

@@ -94,7 +94,7 @@ size_t _getline(char **line, size_t *linesize, FILE *file, stack_t *stacktail)
  * @line: string to tokentize
  * @cmd: an array to store pointers to each word that was tokenized
  */
-void tokenize_string(char *line, char *cmd[])
+void tokenize_string(char *line, char *cmd[3])
 {
 	int i = 0;
 

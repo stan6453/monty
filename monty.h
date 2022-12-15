@@ -61,7 +61,7 @@ extern global_v gv;
 
 void run_program(char **argv);
 size_t _getline(char **line, size_t *linesize, FILE *file, stack_t *stacktail);
-void tokenize_string(char *line, char *cmd[]);
+void tokenize_string(char *line, char *cmd[3]);
 
 /*
  * core functions. functions that

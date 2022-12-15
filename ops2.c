@@ -70,7 +70,7 @@ void sub(stack_t **stack, unsigned int line_number)
 
 
 /**
- * div - divides the second top element of the stack
+ * idiv - divides the second top element of the stack
  * by the top element of the stack.
  * @stack: double pointer tail of the stack to push the item
  * @line_number: the line number where this

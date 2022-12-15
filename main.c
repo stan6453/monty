@@ -70,10 +70,13 @@ void run_program(char **argv)
 size_t _getline(char **line, size_t *linesize, FILE *file, stack_t *stacktail)
 {
 	size_t characters;
+	int test;
 
 	characters = getline(line, linesize, file);
+	
+	test = characters;
 
-	if (feof(file))
+	if (test == -1)
 	{
 		fclose(file);
 		free(*line);

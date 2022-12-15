@@ -51,7 +51,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 
 	is_lchar = (*stack)->n >= 'a' && (*stack)->n <= 'z';
 	is_uchar =  (*stack)->n >= 'A' && (*stack)->n <= 'Z';
-	if ((*stack)->n >= 0 && (*stack)->n <= 255/*!(is_lchar || is_uchar)*/)
+	if (!((*stack)->n >= 0 && (*stack)->n <= 255)/*!(is_lchar || is_uchar)*/)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
 		freeallandexit(*stack, gv.file, *gv.line, EXIT_FAILURE);

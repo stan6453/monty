@@ -55,7 +55,8 @@ void run_program(char **argv)
 			/*if line is just a new line character or a comment*/
 			continue;
 		tokenize_string(line, cmd);
-		if (cmd[0] == NULL) /*if line is while space*/
+		if (cmd[0] == NULL || cmd[0][0] == '#') 
+			/*if line is white space or a comment with white sapce before it*/
 			continue;
 		execute_cmd(cmd, &stacktail, line_number);
 	}

@@ -51,7 +51,8 @@ void run_program(char **argv)
 	while (_getline(&line, &linesize, file, stacktail))
 	{
 		line_number++;
-		if (line[0] == '\0') /*if line is just a new line character*/
+		if (line[0] == '\0' || line[0] == '#')
+			/*if line is just a new line character or a comment*/
 			continue;
 		tokenize_string(line, cmd);
 		if (cmd[0] == NULL) /*if line is while space*/

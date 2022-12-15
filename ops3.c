@@ -56,3 +56,36 @@ void pchar(stack_t **stack, unsigned int line_number)
 	/*print char*/
 	printf("%c\n", (*stack)->n);
 }
+
+
+
+
+/**
+ * pstr - prints the string starting at the top of the stack, followed by a new line.
+ * @stack: double pointer tail of the stack to push the item
+ * @line_number: the line number where this
+ * command can be found in the source file
+ */
+void pstr(stack_t **stack, unsigned int line_number __attribute__((unused)))
+{
+	stack_t *temp = (*stack);
+
+	if (*stack == NULL)
+	{
+		printf("\n");
+		return;
+	}
+
+	while(temp){
+
+		/*0 - 127 are the printable ascii characters*/
+		if ((*stack)->n < 0 || (*stack)->n > 127)
+		{
+			printf("\n");
+			return;
+		}
+		printf("%c", temp->n);
+		temp = temp->prev;
+	}
+	printf("\n");
+}
